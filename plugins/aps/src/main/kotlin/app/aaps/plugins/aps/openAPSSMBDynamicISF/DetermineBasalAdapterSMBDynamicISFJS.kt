@@ -279,9 +279,9 @@ class DetermineBasalAdapterSMBDynamicISFJS internal constructor(private val scri
 
         val insulin = activePlugin.activeInsulin
         val insulinDivisor = when {
-            insulin.peak > 65 -> 55 // lyumjev peak: 45
+            insulin.peak > 65 -> 55 // rapid peak: 75
             insulin.peak > 50 -> 65 // ultra rapid peak: 55
-            else              -> 75 // rapid peak: 75
+            else              -> 75 // lyumjev peak: 45
         }
 
         val tddWeightedFromLast8H = ((1.4 * tddLast4H) + (0.6 * tddLast8to4H)) * 3
