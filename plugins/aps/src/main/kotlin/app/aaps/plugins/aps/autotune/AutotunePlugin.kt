@@ -457,7 +457,7 @@ class AutotunePlugin @Inject constructor(
         atLog("[Plugin] $message")
     }
 
-    override fun specialEnableCondition(): Boolean = config.isEngineeringMode() && config.isDev()
+    override fun specialEnableCondition(): Boolean = config.isEngineeringMode()
 
     override fun atLog(message: String) {
         autotuneFS.atLog(message)
