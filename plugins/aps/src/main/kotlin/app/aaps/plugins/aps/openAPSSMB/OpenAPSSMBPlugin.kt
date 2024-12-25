@@ -260,7 +260,7 @@ open class OpenAPSSMBPlugin @Inject constructor(
         // Current implementation is fallback to SMB if TDD history is not available. Thus calculated here
         val glucoseStatus = glucoseStatusProvider.glucoseStatusData
         dynIsfResult.tdd1D = tddCalculator.averageTDD(tddCalculator.calculate(1, allowMissingDays = false))?.data?.totalAmount
-        tddCalculator.averageTDD(tddCalculator.calculate(7, allowMissingDays = false))?.let {
+        tddCalculator.averageTDD(tddCalculator.calculate(5, allowMissingDays = true))?.let {
             dynIsfResult.tdd7D = it.data.totalAmount
             dynIsfResult.tdd7DDataCarbs = it.data.carbs
             dynIsfResult.tdd7DAllDaysHaveCarbs = it.allDaysHaveCarbs
