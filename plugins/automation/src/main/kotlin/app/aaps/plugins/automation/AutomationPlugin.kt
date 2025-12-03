@@ -403,7 +403,7 @@ class AutomationPlugin @Inject constructor(
             ActionSendSMS(injector),
             ActionSMBChange(injector)
         )
-        if (config.isEngineeringMode() && config.isDev())
+        if (config.isEngineeringMode() )
             actions.add(ActionRunAutotune(injector))
 
         return actions.toList()
