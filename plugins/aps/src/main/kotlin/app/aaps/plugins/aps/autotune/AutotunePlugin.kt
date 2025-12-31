@@ -83,7 +83,7 @@ class AutotunePlugin @Inject constructor(
         .pluginName(app.aaps.core.ui.R.string.autotune)
         .shortName(R.string.autotune_shortname)
         .preferencesId(PluginDescription.PREFERENCE_SCREEN)
-        .showInList { config.isEngineeringMode() && config.isDev() || config.enableAutotune() }
+        .showInList { config.isEngineeringMode() || config.enableAutotune() }
         .description(R.string.autotune_description),
     ownPreferences = listOf(AutotuneStringKey::class.java),
     aapsLogger, rh, preferences
@@ -103,7 +103,7 @@ class AutotunePlugin @Inject constructor(
     val days = WeekDay()
     val autotuneStartHour: Int = 4
 
-    override fun specialEnableCondition(): Boolean = config.isEngineeringMode() && config.isDev() || config.enableAutotune()
+    override fun specialEnableCondition(): Boolean = config.isEngineeringMode() || config.enableAutotune()
 
     override fun aapsAutotune(daysBack: Int, autoSwitch: Boolean, profileToTune: String, weekDays: BooleanArray?) {
         lastRunSuccess = false
